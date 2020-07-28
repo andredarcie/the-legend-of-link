@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="The legend of Link"
+run/main_scene="res://areas/test.tscn"
 config/icon="res://icon.png"
 
 [display]

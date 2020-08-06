@@ -7,7 +7,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 65.9545, 86.2237 )
+position = Vector2( 80.7586, 89.0585 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -15,5 +15,5 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 65536, 0, 0, 65545, 0, 0, 131072, 0, 0, 131081, 0, 0, 196608, 0, 0, 196617, 0, 0, 262144, 0, 0, 262153, 0, 0, 327680, 0, 0, 327689, 0, 0, 393216, 0, 0, 393225, 0, 0, 458752, 0, 0, 458761, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0 )
 
-[node name="stalfos" parent="." instance=ExtResource( 3 )]
-position = Vector2( 95.5627, 49.3711 )
+[node name="stalfos3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 79.6911, 49.9027 )

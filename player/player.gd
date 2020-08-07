@@ -2,9 +2,11 @@ extends Entity
 
 var state = 'default'
 
+func _init():
+	type = 'player'
+	
 func _ready():
 	speed = 70
-	type = 'player'
 
 func _physics_process(delta):
 	match state:

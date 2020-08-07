@@ -14,6 +14,7 @@ var texture_hurt = null
 
 func _ready():
 	if type == 'enemy':
+		set_collision_mask_bit(1, 1)
 		set_physics_process(false)
 		
 	texture_default = $Sprite.texture

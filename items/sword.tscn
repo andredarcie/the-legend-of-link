@@ -42,7 +42,7 @@ tracks/2/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "swingleft"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -81,7 +81,7 @@ tracks/2/keys = {
 "values": [ -1 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "swingright"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -120,8 +120,7 @@ tracks/2/keys = {
 "values": [ -1 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "swingup"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -159,7 +158,7 @@ tracks/2/keys = {
 "values": [ -1 ]
 }
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 2, 6 )
 
 [node name="sword" type="Node2D"]
@@ -171,9 +170,9 @@ script = ExtResource( 2 )
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 4.0
 anims/swingdown = SubResource( 1 )
-anims/swingleft = SubResource( 4 )
-anims/swingright = SubResource( 5 )
-anims/swingup = SubResource( 2 )
+anims/swingleft = SubResource( 2 )
+anims/swingright = SubResource( 3 )
+anims/swingup = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -188,7 +187,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }

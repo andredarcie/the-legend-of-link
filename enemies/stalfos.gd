@@ -2,7 +2,7 @@ extends "res://engine/entity.gd"
 
 var move_timer_length = 15
 var movetimer = 0
-var damage = 1
+var damage = 0.25
 
 func _ready():
 	speed = 40

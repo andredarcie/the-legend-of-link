@@ -1,6 +1,6 @@
 class_name Entity extends KinematicBody2D
 
-const MAXHEALTH = 2
+var MAXHEALTH = 2
 
 var speed = 70
 var movedir = Vector2(0, 0)

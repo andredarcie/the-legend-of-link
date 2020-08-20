@@ -5,9 +5,10 @@ var keys = 0
 
 func _init():
 	type = 'player'
+	MAXHEALTH = 16
+	health = 16
 	
 func _ready():
-	MAXHEALTH = 16
 	speed = 70
 
 func _physics_process(delta):

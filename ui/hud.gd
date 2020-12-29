@@ -1,18 +1,18 @@
 extends CanvasLayer
 
-onready var player = get_node('../player')
+onready var player: Node2D = get_node('../player')
 
-const HEART_ROW_SIZE = 8
-const HEART_OFFSET = 8
+const HEART_ROW_SIZE: int = 8
+const HEART_OFFSET: int = 8
 
-func _ready():
+func _ready() -> void:
 	for i in player.MAXHEALTH:
 		var new_heart = Sprite.new()
 		new_heart.texture = $hearts.texture
 		new_heart.hframes = $hearts.hframes
 		$hearts.add_child(new_heart)
 
-func _process(delta):
+func _process(_delta: float) -> void:
 	for heart in $hearts.get_children():
 		var index = heart.get_index()
 		

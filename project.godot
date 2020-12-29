@@ -18,10 +18,22 @@ _global_script_classes=[ {
 "class": "Pickup",
 "language": "GDScript",
 "path": "res://pickups/pickup.gd"
+}, {
+"base": "Entity",
+"class": "Player",
+"language": "GDScript",
+"path": "res://player/player.gd"
+}, {
+"base": "Entity",
+"class": "Stalfos",
+"language": "GDScript",
+"path": "res://enemies/stalfos.gd"
 } ]
 _global_script_class_icons={
 "Entity": "",
-"Pickup": ""
+"Pickup": "",
+"Player": "",
+"Stalfos": ""
 }
 
 [application]

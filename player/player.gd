@@ -1,17 +1,17 @@
-extends Entity
+class_name Player extends Entity
 
-var state = 'default'
-var keys = 0
+var state: String = 'default'
+var keys: int = 0
 
-func _init():
+func _init() -> void:
 	type = 'player'
 	MAXHEALTH = 16
 	health = 16
 	
-func _ready():
+func _ready() -> void:
 	speed = 70
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	match state:
 		'default':
 			state_default()
@@ -20,7 +20,7 @@ func _physics_process(delta):
 	
 	keys = min(keys, 9)
 	
-func state_default():
+func state_default() -> void:
 	controls_loop()
 	movement_loop()
 	spriterdir_loop()
@@ -43,17 +43,17 @@ func state_default():
 	if Input.is_action_just_pressed("a"):
 		use_item(preload('res://items/sword.tscn'))
 
-func state_swing():
+func state_swing() -> void:
 	anim_switch('idle')
 	movement_loop()
 	damage_loop()
 	movedir = dir.center
 	
-func controls_loop():
-	var LEFT  = Input.is_action_pressed("ui_left")
-	var RIGHT = Input.is_action_pressed("ui_right")
-	var UP    = Input.is_action_pressed("ui_up")
-	var DOWN  = Input.is_action_pressed("ui_down")
+func controls_loop() -> void:
+	var LEFT: bool  = Input.is_action_pressed("ui_left")
+	var RIGHT: bool = Input.is_action_pressed("ui_right")
+	var UP: bool    = Input.is_action_pressed("ui_up")
+	var DOWN: bool  = Input.is_action_pressed("ui_down")
 	
 	movedir.x = -int(LEFT) + int(RIGHT)
 	movedir.y = -int(UP) + int(DOWN)

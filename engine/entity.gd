@@ -1,18 +1,18 @@
 class_name Entity extends KinematicBody2D
 
-var MAXHEALTH = 2
+var MAXHEALTH: int = 2
 
-var speed = 70
-var movedir = Vector2(0, 0)
-var knockdir = Vector2(0, 0)
-var spritedir = 'down'
-var hitstun = 0
-var health = MAXHEALTH
-var type = 'enemy'
-var texture_default = null
-var texture_hurt = null
+var speed: float = 70
+var movedir: Vector2 = Vector2(0, 0)
+var knockdir: Vector2 = Vector2(0, 0)
+var spritedir: String = 'down'
+var hitstun: int = 0
+var health: int = MAXHEALTH
+var type: String = 'enemy'
+var texture_default: Texture = null
+var texture_hurt: Texture = null
 
-func _ready():
+func _ready() -> void:
 	if type == 'enemy':
 		set_collision_mask_bit(1, 1)
 		set_physics_process(false)
@@ -21,7 +21,7 @@ func _ready():
 	print($Sprite.texture.get_path())
 	texture_hurt = load($Sprite.texture.get_path().replace('.png','_hurt.png'))
 
-func movement_loop():
+func movement_loop() -> void:
 	var motion
 	if hitstun == 0:
 		motion = movedir.normalized() * speed
@@ -30,7 +30,7 @@ func movement_loop():
 		
 	move_and_slide(motion, Vector2(0, 0))
 	
-func spriterdir_loop():
+func spriterdir_loop() -> void:
 	match movedir:
 		Vector2(-1, 0):
 			spritedir = 'left'
@@ -46,7 +46,7 @@ func anim_switch(animation):
 	if $anim.current_animation != newanim:
 		$anim.play(newanim)
 
-func damage_loop():
+func damage_loop() -> void:
 	health = min(MAXHEALTH, health)
 	
 	if hitstun > 0:
@@ -68,7 +68,7 @@ func damage_loop():
 			hitstun = 10
 			knockdir = global_transform.origin - body.global_transform.origin
 
-func use_item(item):
+func use_item(item: PackedScene) -> void:
 	var newitem = item.instance()
 	newitem.add_to_group(str(newitem.get_name(), self))
 	add_child(newitem)
@@ -76,7 +76,7 @@ func use_item(item):
 	if get_tree().get_nodes_in_group(str(newitem.get_name(), self)).size() > newitem.maxamount:
 		newitem.queue_free()
 		
-func instance_scene(scene):
+func instance_scene(scene: PackedScene) -> void:
 	var new_scene = scene.instance()
 	new_scene.global_position = global_position
 	get_parent().add_child(new_scene)

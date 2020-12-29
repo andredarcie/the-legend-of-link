@@ -1,15 +1,15 @@
-extends "res://engine/entity.gd"
+class_name Stalfos extends Entity
 
-var move_timer_length = 15
-var movetimer = 0
-var damage = 0.25
+var move_timer_length: float = 15
+var movetimer: int = 0
+var damage: float = 0.25
 
-func _ready():
+func _ready() -> void:
 	speed = 40
 	$anim.play('default')
 	movedir = dir.rand()
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	movement_loop()
 	damage_loop()
 	

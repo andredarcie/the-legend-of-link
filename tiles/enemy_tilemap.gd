@@ -1,6 +1,6 @@
 extends TileMap
 
-func _ready():
+func _ready() -> void:
 	var size = get_cell_size()
 	var offset = size / 2
 	

@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://engine/entity.gd"
 }, {
+"base": "Pickup",
+"class": "Heart",
+"language": "GDScript",
+"path": "res://pickups/heart.gd"
+}, {
 "base": "Area2D",
 "class": "Pickup",
 "language": "GDScript",
@@ -28,12 +33,19 @@ _global_script_classes=[ {
 "class": "Stalfos",
 "language": "GDScript",
 "path": "res://enemies/stalfos.gd"
+}, {
+"base": "Area2D",
+"class": "Switch",
+"language": "GDScript",
+"path": "res://pickups/switch/Switch.gd"
 } ]
 _global_script_class_icons={
 "Entity": "",
+"Heart": "",
 "Pickup": "",
 "Player": "",
-"Stalfos": ""
+"Stalfos": "",
+"Switch": ""
 }
 
 [application]

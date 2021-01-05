@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/dungeon.tres" type="TileSet" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://ui/hud.tscn" type="PackedScene" id=5]
 [ext_resource path="res://pickups/key.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tiles/key_door.tscn" type="PackedScene" id=7]
+[ext_resource path="res://npcs/Mage.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D"]
 
@@ -38,3 +39,6 @@ rotation = 1.5708
 
 [node name="key_door" parent="key_door" instance=ExtResource( 7 )]
 position = Vector2( 16.2754, 0 )
+
+[node name="Mage" parent="." instance=ExtResource( 8 )]
+position = Vector2( 140.593, 2066.31 )

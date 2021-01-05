@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name Hud extends CanvasLayer
 
 onready var player: Node2D = get_node('../player')
 
@@ -29,3 +29,9 @@ func _process(_delta: float) -> void:
 			heart.frame = 4
 			
 	$keys.frame = player.keys
+
+func showDialog():
+	$DialogBox/RichTextLabel.start_dialog()
+
+func hideDialog():
+	$DialogBox/RichTextLabel.end_dialog()

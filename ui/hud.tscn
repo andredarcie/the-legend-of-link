@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://engine/dialog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/numbers.png" type="Texture" id=2]
 [ext_resource path="res://ui/hud.gd" type="Script" id=3]
 [ext_resource path="res://ui/hearts.png" type="Texture" id=4]
@@ -16,3 +17,6 @@ hframes = 10
 position = Vector2( 150, 4 )
 texture = ExtResource( 4 )
 hframes = 5
+
+[node name="DialogBox" parent="." instance=ExtResource( 1 )]
+position = Vector2( 34.2614, 153.288 )

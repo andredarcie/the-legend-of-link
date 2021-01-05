@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "RichTextLabel",
+"class": "DialogBox",
+"language": "GDScript",
+"path": "res://engine/DialogBox.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Entity",
 "language": "GDScript",
@@ -19,10 +24,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://pickups/heart.gd"
 }, {
+"base": "CanvasLayer",
+"class": "Hud",
+"language": "GDScript",
+"path": "res://ui/hud.gd"
+}, {
 "base": "Pickup",
 "class": "Key",
 "language": "GDScript",
 "path": "res://pickups/key.gd"
+}, {
+"base": "Node2D",
+"class": "Mage",
+"language": "GDScript",
+"path": "res://npcs/Mage.gd"
 }, {
 "base": "Area2D",
 "class": "Pickup",
@@ -45,9 +60,12 @@ _global_script_classes=[ {
 "path": "res://pickups/switch/Switch.gd"
 } ]
 _global_script_class_icons={
+"DialogBox": "",
 "Entity": "",
 "Heart": "",
+"Hud": "",
 "Key": "",
+"Mage": "",
 "Pickup": "",
 "Player": "",
 "Stalfos": "",
@@ -72,6 +90,11 @@ window/size/test_width=1024
 window/size/test_height=896
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[gui]
+
+common/snap_controls_to_pixels=false
+theme/snap_controls_to_pixels=true
 
 [importer_defaults]
 

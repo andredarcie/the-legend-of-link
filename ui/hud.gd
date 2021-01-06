@@ -29,9 +29,3 @@ func _process(_delta: float) -> void:
 			heart.frame = 4
 			
 	$keys.frame = player.keys
-
-func showDialog():
-	$DialogBox/RichTextLabel.start_dialog()
-
-func hideDialog():
-	$DialogBox/RichTextLabel.end_dialog()

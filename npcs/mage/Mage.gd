@@ -1,14 +1,14 @@
 class_name Mage extends Node2D
 
-var hud: Hud = null
+var dialogBox: DialogBox = null
+var characterName = 'Old Mage'
+var dialogs = ["Welcome to this incredible adventure!","This is the way."]
 
 func _ready():
-	hud = get_tree().get_root().find_node("hud", true, false) as Hud
-
+	dialogBox = get_tree().get_root().find_node("DialogBox", true, false) as DialogBox
 
 func _on_Area2D_body_entered(body):
-	hud.showDialog()
-
+	dialogBox.start_dialog(self.characterName, self.dialogs)
 
 func _on_Area2D_body_exited(body):
-	hud.hideDialog()
+	dialogBox.end_dialog()

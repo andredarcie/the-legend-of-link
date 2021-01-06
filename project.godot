@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "RichTextLabel",
+"base": "Polygon2D",
 "class": "DialogBox",
 "language": "GDScript",
 "path": "res://engine/DialogBox.gd"
@@ -58,6 +58,16 @@ _global_script_classes=[ {
 "class": "Switch",
 "language": "GDScript",
 "path": "res://pickups/switch/Switch.gd"
+}, {
+"base": "RichTextLabel",
+"class": "TextBox",
+"language": "GDScript",
+"path": "res://engine/TextBox.gd"
+}, {
+"base": "RichTextLabel",
+"class": "TextName",
+"language": "GDScript",
+"path": "res://engine/TextName.gd"
 } ]
 _global_script_class_icons={
 "DialogBox": "",
@@ -69,7 +79,9 @@ _global_script_class_icons={
 "Pickup": "",
 "Player": "",
 "Stalfos": "",
-"Switch": ""
+"Switch": "",
+"TextBox": "",
+"TextName": ""
 }
 
 [application]

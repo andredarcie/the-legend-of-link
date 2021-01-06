@@ -1,21 +1,43 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://engine/DialogBox.gd" type="Script" id=1]
+[ext_resource path="res://engine/TextBox.gd" type="Script" id=1]
 [ext_resource path="res://fonts/m5x7.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://engine/DialogBox.gd" type="Script" id=3]
+[ext_resource path="res://engine/TextName.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 14
 font_data = ExtResource( 2 )
 
 [node name="DialogBox" type="Polygon2D"]
 color = Color( 0.423529, 0.388235, 0.388235, 1 )
 polygon = PoolVector2Array( 0, 0, 192, 0, 192, 64, 0, 64 )
+script = ExtResource( 3 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="TextName" type="RichTextLabel" parent="."]
 margin_left = 8.0
-margin_top = 8.0
 margin_right = 184.0
-margin_bottom = 56.0
+margin_bottom = 16.0
 custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.121569, 0.572549, 0.937255, 1 )
+bbcode_enabled = true
+bbcode_text = "teste"
+text = "teste"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextBox" type="RichTextLabel" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 176.0
+margin_bottom = 56.0
+custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "teste"
 text = "teste"
@@ -27,4 +49,4 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
-[connection signal="timeout" from="Timer" to="RichTextLabel" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer" to="TextBox" method="_on_Timer_timeout"]

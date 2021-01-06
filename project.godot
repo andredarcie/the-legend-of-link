@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Mage",
 "language": "GDScript",
-"path": "res://npcs/Mage.gd"
+"path": "res://npcs/mage/Mage.gd"
 }, {
 "base": "Area2D",
 "class": "Pickup",

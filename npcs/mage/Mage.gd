@@ -8,6 +8,12 @@ func _ready():
 	dialogBox = get_tree().get_root().find_node("DialogBox", true, false) as DialogBox
 
 func _on_Area2D_body_entered(body):
+	if (body as Player).keys > 0:
+		dialogBox.start_dialog(self.characterName, [
+			'Haha! You got the key!'
+		])
+		return
+		
 	dialogBox.start_dialog(self.characterName, self.dialogs)
 
 func _on_Area2D_body_exited(body):

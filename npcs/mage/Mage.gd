@@ -9,6 +9,9 @@ func _ready():
 	dialogBox = get_tree().get_root().find_node("DialogBox", true, false) as DialogBox
 
 func _on_Area2D_body_entered(body):
+	if not body.get('type'):
+		return
+		
 	if self.talkAboutTheKey:
 		dialogBox.start_dialog(self.characterName, [
 			'Sentido-se perdido?'

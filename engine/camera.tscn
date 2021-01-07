@@ -3,13 +3,13 @@
 [ext_resource path="res://engine/camera.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 80, 64 )
+extents = Vector2( 123.662, 108.325 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 80, 2 )
+extents = Vector2( 127, 2 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 2, 64 )
+extents = Vector2( 2, 107.5 )
 
 [node name="camera" type="Camera2D"]
 anchor_mode = 0
@@ -22,6 +22,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
+position = Vector2( 48.3384, 31.8248 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -32,17 +33,17 @@ collision_layer = 2
 collision_mask = 2147483648
 
 [node name="top" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 80, 18 )
+position = Vector2( 127, 3 )
 shape = SubResource( 2 )
 
 [node name="bottom" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 80, 142 )
+position = Vector2( 127, 222 )
 shape = SubResource( 2 )
 
 [node name="left" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 2, 80 )
+position = Vector2( 2.5, 113 )
 shape = SubResource( 3 )
 
 [node name="right" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 158, 80 )
+position = Vector2( 254, 113 )
 shape = SubResource( 3 )

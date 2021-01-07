@@ -18,7 +18,6 @@ func _ready() -> void:
 		set_physics_process(false)
 		
 	texture_default = $Sprite.texture
-	print($Sprite.texture.get_path())
 	texture_hurt = load($Sprite.texture.get_path().replace('.png','_hurt.png'))
 
 func movement_loop() -> void:

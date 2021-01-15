@@ -3,6 +3,8 @@ class_name Player extends Entity
 var state: String = 'default'
 var keys: int = 0
 
+signal player_move
+
 func _init() -> void:
 	type = 'player'
 	MAXHEALTH = 16
@@ -36,6 +38,7 @@ func state_default() -> void:
 		if spritedir == 'down' and test_move(transform, Vector2(0, 1)):
 			anim_switch('push')
 	elif movedir != Vector2(0, 0):
+		emit_signal("player_move")
 		anim_switch('walk')
 	else:
 		anim_switch('idle')

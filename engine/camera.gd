@@ -13,6 +13,7 @@ func _process(delta):
 
 func body_entered(body):
 	if body.get('type') == 'enemy':
+		body.add_to_group('enemies-in-scene')
 		body.set_physics_process(true)
 		
 func body_exited(body):

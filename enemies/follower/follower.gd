@@ -1,24 +1,36 @@
 class_name Follower extends KinematicBody2D
 
-onready var player: Player = get_tree().get_root().find_node("player", true, false) as Player
-var speed: float = 50
-var follow_player: bool = false
-var first_time: bool = true
+var speed := 40.0
+var path := PoolVector2Array() setget set_path
 
-func _physics_process(delta):
-	if follow_player:
-		look_at(player.global_position)
-		move_and_slide(Vector2(speed, 0).rotated(rotation))
-
-func _on_Area2D_body_entered(body):
-	if not body.get('type'):
+func _ready():
+	set_process(false)
+	
+	
+func _process(delta: float) -> void:
+	var move_distance := speed * delta
+	move_along_path(move_distance)
+	
+	
+func move_along_path(distance : float) -> void:
+	var start_point : = position
+	for i in range(path.size()):
+		var distance_to_next := start_point.distance_to(path[0])
+		if distance <= distance_to_next and distance >= 0.0:
+			position = start_point.linear_interpolate(path[0], distance / distance_to_next)
+			break
+		elif path.size() == 1 && distance > distance_to_next:
+			position = path[0]
+			set_process(false)
+			break
+			
+		distance -= distance_to_next
+		start_point = path[0]
+		path.remove(0)
+	
+func set_path(value: PoolVector2Array) -> void:
+	path = value
+	if value.size() == 0:
 		return
-		
-	follow_player = true
+	set_process(true)
 
-
-func _on_Area2D_body_exited(body):
-	if not body.get('type'):
-		return
-		
-	follow_player = false

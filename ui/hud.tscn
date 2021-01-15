@@ -8,6 +8,11 @@
 [node name="hud" type="CanvasLayer"]
 script = ExtResource( 3 )
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 72, 0 )
+scale = Vector2( 0.25, 1 )
+polygon = PoolVector2Array( 64, 0, 96, 0, 96, 8, 32, 8, 32, 0, 64, 0 )
+
 [node name="keys" type="Sprite" parent="."]
 position = Vector2( 87.4264, 4.12945 )
 texture = ExtResource( 2 )
@@ -20,3 +25,4 @@ hframes = 5
 
 [node name="DialogBox" parent="." instance=ExtResource( 1 )]
 position = Vector2( 34.2614, 153.288 )
+color = Color( 0, 0, 0, 1 )

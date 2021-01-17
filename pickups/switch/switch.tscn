@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://pickups/switch/Switch.gd" type="Script" id=1]
 [ext_resource path="res://pickups/switch/off.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14.6305, 13.7398 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6.55256, 5.47584 )
 
 [node name="switch" type="Area2D"]
 z_index = -1
@@ -13,7 +17,12 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -0.490057, 0.538342 )
+shape = SubResource( 2 )
 [connection signal="body_entered" from="." to="." method="_on_switch_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_switch_body_exited"]

@@ -5,7 +5,7 @@ var active: bool = false
 var await_time: float = 0
 var thorns = []
 
-var on_image: Texture = preload("res://pickups/switch/green.png")
+var on_image: Texture = preload("res://pickups/switch/on.png")
 var off_image: Texture = preload("res://pickups/switch/off.png")
 
 func _ready() -> void:
@@ -35,4 +35,4 @@ func _process(_delta: float) -> void:
 func set_all_thorns(param: bool):
 	for child in self.thorns:
 		if child is Area2D:
-			child.activeThron = param
+			child.active = param

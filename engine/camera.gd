@@ -7,8 +7,8 @@ func _ready():
 	
 func _process(delta):
 	var pos = get_node('../player').global_position - Vector2(0, 16)
-	var x = floor(pos.x / 256) * 256
-	var y = floor(pos.y / 224) * 224
+	var x = floor(pos.x / 320) * 320
+	var y = floor(pos.y / 180) * 180
 	global_position = Vector2(x, y)
 
 func body_entered(body):

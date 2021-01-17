@@ -20,7 +20,6 @@ func _on_switch_body_exited(body: Node2D) -> void:
 		self.proximity = false
 	
 func _process(_delta: float) -> void:	
-	print(self.active)
 	if self.await_time > 0:
 		self.await_time = self.await_time - 1
 	

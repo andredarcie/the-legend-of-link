@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "Pickup",
 "class": "Key",
 "language": "GDScript",
-"path": "res://pickups/key.gd"
+"path": "res://pickups/key/Key.gd"
 }, {
 "base": "Node2D",
 "class": "Mage",

@@ -66,6 +66,9 @@ func damage_loop() -> void:
 			health -= body.get('damage')
 			hitstun = 10
 			knockdir = global_transform.origin - body.global_transform.origin
+			
+			if type == 'player' and health <= 0:
+				get_tree().reload_current_scene()
 
 func use_item(item: PackedScene) -> void:
 	var newitem = item.instance()

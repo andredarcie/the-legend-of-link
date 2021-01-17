@@ -11,13 +11,16 @@ var off_image: Texture = preload("res://pickups/switch/off.png")
 func _ready() -> void:
 	self.thorns = get_children()
 	
-func _on_switch_body_entered(_body: Node2D) -> void:
-	self.proximity = true
+func _on_switch_body_entered(body: Node2D) -> void:
+	if body.get("type") == "player":
+		self.proximity = true
 
-func _on_switch_body_exited(_body: Node2D) -> void:
-	self.proximity = false
+func _on_switch_body_exited(body: Node2D) -> void:
+	if body.get("type") == "player":
+		self.proximity = false
 	
 func _process(_delta: float) -> void:	
+	print(self.active)
 	if self.await_time > 0:
 		self.await_time = self.await_time - 1
 	

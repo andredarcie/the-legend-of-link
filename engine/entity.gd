@@ -66,6 +66,9 @@ func damage_loop() -> void:
 		if area.name == "Bonfire":
 			body = area
 		
+		if area.name == "Vision":
+			continue
+		
 		if "Grass" in body.name:
 			if body.get("on_fire"):
 				make_damage(body)

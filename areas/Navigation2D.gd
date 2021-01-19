@@ -1,19 +1,25 @@
 extends Navigation2D
 
 onready var player := $"../player" as Player
-onready var follower := $"../Follower" as Follower
+var enemies = []
 var paths: PoolVector2Array
-var follow: bool = false
+var follow: bool = true
 
 func _ready():
 	pass
 	
 
+func add_enemies(enemy):
+	self.enemies.append(enemy)
+
 func _on_player_player_move():
+	return
+	
 	if follow:
-		for enemy in get_tree().get_nodes_in_group("enemies-in-scene"):
+		for enemy in enemies:
+			if !enemy.get("saw_the_player"):
+				continue
+			
 			var start = enemy.global_position
 			var end = player.global_position
-			self.paths = get_simple_path(start, end)
-			#$Line2D.points = self.paths
-			enemy.path = self.paths
+			enemy.path = get_simple_path(start, end)

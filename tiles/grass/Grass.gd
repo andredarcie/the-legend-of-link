@@ -1,9 +1,9 @@
 extends Node2D
 
 var fire_texture = load("res://tiles/grass/fire.png")
-var grass_texture = load("res://tiles/grass/grass.png") 
 var on_fire: bool = false
 var damage = 1
+	
 
 func _on_Timer_timeout():
 	$Sprite.visible = false

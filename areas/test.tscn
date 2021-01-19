@@ -27,7 +27,7 @@ position = Vector2( -155.48, -93.5541 )
 current = true
 
 [node name="enemies" parent="." instance=ExtResource( 3 )]
-tile_data = PoolIntArray( 6619139, 0, 0, 6815752, 0, 0, 7012357, 0, 0, 7602199, 0, 0, 7733289, 0, 0, 7864358, 0, 0, 8454121, 0, 0, 8454183, 0, 0, 8585186, 0, 0, 8585191, 0, 0, 8519715, 0, 0, 8519722, 0, 0, 8585255, 0, 0, 8716268, 0, 0, 8781797, 0, 0, 8781862, 0, 0, 8978407, 0, 0 )
+tile_data = PoolIntArray( 8323080, 0, 0, 8454121, 0, 0, 8585186, 0, 0, 8585191, 0, 0, 8716268, 0, 0, 8781797, 0, 0, 8978407, 0, 0 )
 
 [node name="key" parent="." instance=ExtResource( 6 )]
 position = Vector2( 210.855, 1760.89 )
@@ -69,70 +69,43 @@ position = Vector2( 247.853, 1900.25 )
 [node name="DynamicTileMap" type="Node" parent="."]
 
 [node name="Grass" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 224, 2104 )
-
-[node name="Grass6" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 72, 2096 )
-
-[node name="Grass12" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 88, 2096 )
-
-[node name="Grass7" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 144, 2072 )
-
-[node name="Grass8" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 192, 1944 )
-
-[node name="Grass9" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 192, 1960 )
-
-[node name="Grass10" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 128, 2056 )
-
-[node name="Grass11" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 144, 2056 )
-
-[node name="Grass2" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 128, 1944 )
-
-[node name="Grass3" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 520, 2112 )
-
-[node name="Grass4" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 128, 1960 )
-
-[node name="Grass5" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 376, 2096 )
+position = Vector2( 136, 2112 )
 
 [node name="Grass13" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 112, 1944 )
+position = Vector2( 136, 2096 )
 
-[node name="Grass14" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 472, 1960 )
+[node name="Grass2" parent="DynamicTileMap" instance=ExtResource( 13 )]
+position = Vector2( 184, 2104 )
 
-[node name="Grass15" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 312, 1912 )
+[node name="Grass3" parent="DynamicTileMap" instance=ExtResource( 13 )]
+position = Vector2( 200, 2104 )
 
-[node name="Grass16" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 504, 2128 )
+[node name="Grass4" parent="DynamicTileMap" instance=ExtResource( 13 )]
+position = Vector2( 184, 2120 )
 
-[node name="Grass17" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 360, 2096 )
+[node name="Grass5" parent="DynamicTileMap" instance=ExtResource( 13 )]
+position = Vector2( 296, 2096 )
 
-[node name="Grass18" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 472, 1992 )
+[node name="Grass6" parent="DynamicTileMap" instance=ExtResource( 13 )]
+position = Vector2( 296, 2112 )
 
-[node name="Grass19" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 472, 1976 )
+[node name="Grass7" parent="DynamicTileMap" instance=ExtResource( 13 )]
+position = Vector2( 88, 1920 )
 
-[node name="Grass20" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 312, 1928 )
+[node name="Grass8" parent="DynamicTileMap" instance=ExtResource( 13 )]
+position = Vector2( 104, 1920 )
 
-[node name="Grass21" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 504, 2112 )
+[node name="Grass9" parent="DynamicTileMap" instance=ExtResource( 13 )]
+position = Vector2( 88, 1904 )
 
-[node name="Grass22" parent="DynamicTileMap" instance=ExtResource( 13 )]
-position = Vector2( 360, 2112 )
+[node name="Grass10" parent="DynamicTileMap" instance=ExtResource( 13 )]
+position = Vector2( 88, 1936 )
+
+[node name="Grass11" parent="DynamicTileMap" instance=ExtResource( 13 )]
+position = Vector2( 304, 1928 )
+
+[node name="Grass12" parent="DynamicTileMap" instance=ExtResource( 13 )]
+position = Vector2( 304, 1944 )
 
 [node name="Bonfire" parent="DynamicTileMap" instance=ExtResource( 9 )]
 position = Vector2( 104, 2072 )

@@ -62,14 +62,26 @@ func damage_loop() -> void:
 		
 	for area in $hitbox.get_overlapping_areas():
 		var body = area.get_parent()
-		if hitstun == 0 and body.get('damage') != null and body.get('type') != type:
-			health -= body.get('damage')
-			hitstun = 10
-			knockdir = global_transform.origin - body.global_transform.origin
-			
-			if type == 'player' and health <= 0:
-				get_tree().reload_current_scene()
+		
+		if area.name == "Bonfire":
+			body = area
+		
+		if "Grass" in body.name:
+			if body.get("on_fire"):
+				make_damage(body)
+		elif hitstun == 0 and body.get('damage') != null and body.get('type') != type:
+			make_damage(body)
 
+
+func make_damage(body):
+	health -= body.get('damage')
+	hitstun = 10
+	knockdir = global_transform.origin - body.global_transform.origin
+			
+	if type == 'player' and health <= 0:
+		get_tree().reload_current_scene()
+	
+	
 func use_item(item: PackedScene) -> void:
 	var newitem = item.instance()
 	newitem.add_to_group(str(newitem.get_name(), self))

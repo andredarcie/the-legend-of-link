@@ -175,6 +175,7 @@ anims/swingright = SubResource( 3 )
 anims/swingup = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
+z_index = -1
 texture = ExtResource( 1 )
 hframes = 2
 __meta__ = {
@@ -182,6 +183,7 @@ __meta__ = {
 }
 
 [node name="Area2D" type="Area2D" parent="."]
+z_index = -1
 __meta__ = {
 "_edit_lock_": true
 }

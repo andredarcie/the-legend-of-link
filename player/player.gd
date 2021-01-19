@@ -2,6 +2,7 @@ class_name Player extends Entity
 
 var state: String = 'default'
 var keys: int = 0
+var sword_on_fire: bool = false
 
 signal player_move
 
@@ -60,3 +61,11 @@ func controls_loop() -> void:
 	
 	movedir.x = -int(LEFT) + int(RIGHT)
 	movedir.y = -int(UP) + int(DOWN)
+
+func sword_catch_fire():
+	sword_on_fire = true
+	$SwordOnFireTimer.start()
+
+func _on_SwordOnFireTimer_timeout():
+	sword_on_fire = false
+	$SwordOnFireTimer.stop()

@@ -221,4 +221,9 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource( 14 )
+
+[node name="SwordOnFireTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 [connection signal="ready" from="." to="." method="_on_player_ready"]
+[connection signal="timeout" from="SwordOnFireTimer" to="." method="_on_SwordOnFireTimer_timeout"]

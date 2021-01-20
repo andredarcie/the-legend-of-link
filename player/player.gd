@@ -8,7 +8,7 @@ signal player_move
 
 func _init() -> void:
 	type = 'player'
-	MAXHEALTH = 3
+	max_health = 3
 	health = 3
 	
 func _ready() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/player.png" type="Texture" id=2]
@@ -189,6 +189,9 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 7, 8 )
 
+[sub_resource type="OccluderPolygon2D" id=15]
+polygon = PoolVector2Array( -4.48177, 7.64083, 3.98177, 7.4181, 5.54084, 3.07497, -0.138638, 1.5159, -6.1522, 3.85451 )
+
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -225,5 +228,8 @@ shape = SubResource( 14 )
 [node name="SwordOnFireTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 15 )
 [connection signal="ready" from="." to="." method="_on_player_ready"]
 [connection signal="timeout" from="SwordOnFireTimer" to="." method="_on_SwordOnFireTimer_timeout"]

@@ -6,7 +6,7 @@ const HEART_ROW_SIZE: int = 8
 const HEART_OFFSET: int = 8
 
 func _ready() -> void:
-	for i in player.MAXHEALTH:
+	for i in player.max_health:
 		var new_heart = Sprite.new()
 		new_heart.texture = $hearts.texture
 		new_heart.hframes = $hearts.hframes

@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Entity",
+"class": "BaseEnemy",
+"language": "GDScript",
+"path": "res://enemies/BaseEnemy/BaseEnemy.gd"
+}, {
 "base": "Polygon2D",
 "class": "DialogBox",
 "language": "GDScript",
@@ -54,11 +59,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/player.gd"
 }, {
-"base": "Entity",
-"class": "Stalfos",
-"language": "GDScript",
-"path": "res://enemies/stalfos.gd"
-}, {
 "base": "Area2D",
 "class": "Switch",
 "language": "GDScript",
@@ -75,6 +75,7 @@ _global_script_classes=[ {
 "path": "res://engine/TextName.gd"
 } ]
 _global_script_class_icons={
+"BaseEnemy": "",
 "DialogBox": "",
 "Entity": "",
 "Follower": "",
@@ -84,7 +85,6 @@ _global_script_class_icons={
 "Mage": "",
 "Pickup": "",
 "Player": "",
-"Stalfos": "",
 "Switch": "",
 "TextBox": "",
 "TextName": ""

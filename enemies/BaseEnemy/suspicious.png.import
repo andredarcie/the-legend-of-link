@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/alert.png-c2c28378760fdfbd7330339264a8779a.stex"
+path="res://.import/suspicious.png-1a11b11578af95bf18cfed8bfbec5775.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/Enemy/alert.png"
-dest_files=[ "res://.import/alert.png-c2c28378760fdfbd7330339264a8779a.stex" ]
+source_file="res://enemies/BaseEnemy/suspicious.png"
+dest_files=[ "res://.import/suspicious.png-1a11b11578af95bf18cfed8bfbec5775.stex" ]
 
 [params]
 

@@ -25,16 +25,25 @@ func _process(_delta: float) -> void:
 	
 	var key_press: bool = Input.is_action_pressed("ui_accept")
 	if await_time == 0 && key_press && self.proximity:
-		self.active = !self.active
-		if self.active:
-			$Sprite.texture = on_image
-		else:
-			$Sprite.texture = off_image
-			
-		self.set_all_thorns(self.active)
-		self.await_time = 10
+		toggle_switch()
 
+func toggle_switch():
+	self.active = !self.active
+	if self.active:
+		$Sprite.texture = on_image
+	else:
+		$Sprite.texture = off_image
+		
+	self.set_all_thorns(self.active)
+	self.await_time = 10
+		
+	
 func set_all_thorns(param: bool):
 	for child in self.thorns:
 		if child is Area2D:
 			child.active = param
+
+
+func _on_Switch_area_entered(area):
+	if area.get_parent().name == "sword":
+		toggle_switch()

@@ -9,11 +9,12 @@ extents = Vector2( 14.6305, 13.7398 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 6.55256, 5.47584 )
 
-[node name="switch" type="Area2D"]
-z_index = -1
+[node name="Switch" type="Area2D"]
+z_index = -2
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+z_index = -2
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,5 +25,6 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -0.490057, 0.538342 )
 shape = SubResource( 2 )
+[connection signal="area_entered" from="." to="." method="_on_Switch_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_switch_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_switch_body_exited"]

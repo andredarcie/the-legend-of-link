@@ -1,13 +1,13 @@
 class_name Entity extends KinematicBody2D
 
-var MAXHEALTH: int = 2
+var max_health: int = 10
 
 var speed: float = 70
 var movedir: Vector2 = Vector2(0, 0)
 var knockdir: Vector2 = Vector2(0, 0)
 var spritedir: String = 'down'
 var hitstun: int = 0
-var health: int = MAXHEALTH
+var health: int = max_health
 var type: String = 'enemy'
 var texture_default: Texture = null
 var texture_hurt: Texture = null
@@ -46,7 +46,7 @@ func anim_switch(animation):
 		$anim.play(newanim)
 
 func damage_loop() -> void:
-	health = min(MAXHEALTH, health)
+	health = min(max_health, health)
 	
 	if hitstun > 0:
 		hitstun -= 1
@@ -63,7 +63,7 @@ func damage_loop() -> void:
 	for area in $hitbox.get_overlapping_areas():
 		var body = area.get_parent()
 		
-		if area.name == "Bonfire":
+		if  "Bonfire" in area.name:
 			body = area
 		
 		if area.name == "Vision":

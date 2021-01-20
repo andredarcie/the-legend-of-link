@@ -9,7 +9,7 @@ func _ready():
 	dialogBox = get_tree().get_root().find_node("DialogBox", true, false) as DialogBox
 
 func _on_Area2D_body_entered(body):
-	if not body.get('type'):
+	if not body.get('type') == "player":
 		return
 		
 	if self.talkAboutTheKey:

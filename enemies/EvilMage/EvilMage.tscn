@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://enemies/EvilMage/EvilMage.gd" type="Script" id=1]
+[ext_resource path="res://enemies/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=2]
+
+[node name="EvilMage" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="BaseEnemy" parent="." instance=ExtResource( 2 )]

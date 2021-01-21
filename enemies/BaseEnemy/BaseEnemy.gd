@@ -5,6 +5,7 @@ var movetimer: int = 0
 var damage: float = 0.25
 var is_following := false
 var stopped: bool = false
+var shoot_magic_balls: bool = false
 onready var player: Player = get_tree().get_root().get_node("Node2D/player")
 var move
 
@@ -65,6 +66,8 @@ func _on_Vision_body_entered(body):
 		$Balloon.visible = true
 		$Balloon.texture = alert_texture
 		is_following = true
+		if shoot_magic_balls:
+			$MagicBallTimer.start()
 
 
 func suspicious():
@@ -78,3 +81,8 @@ func suspicious():
 func _on_SuspiciousTimer_timeout():
 	if !is_following:
 		$Balloon.visible = false
+
+
+func _on_MagicBallTimer_timeout():
+	var new_scene = load("res://enemies/BaseEnemy/MagicBall.tscn").instance()
+	add_child_below_node(get_tree().get_root().get_node("Node2D"), new_scene)

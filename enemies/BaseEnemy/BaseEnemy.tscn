@@ -72,5 +72,8 @@ position = Vector2( -0.124992, -16.5906 )
 
 [node name="SuspiciousTimer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="MagicBallTimer" type="Timer" parent="."]
 [connection signal="body_entered" from="Vision" to="." method="_on_Vision_body_entered"]
 [connection signal="timeout" from="SuspiciousTimer" to="." method="_on_SuspiciousTimer_timeout"]
+[connection signal="timeout" from="MagicBallTimer" to="." method="_on_MagicBallTimer_timeout"]

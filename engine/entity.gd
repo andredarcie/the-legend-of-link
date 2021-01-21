@@ -63,6 +63,17 @@ func damage_loop() -> void:
 	for area in $hitbox.get_overlapping_areas():
 		var body = area.get_parent()
 		
+		if area.is_in_group("ranges"):
+			continue
+		
+		if body.is_in_group("bullets") and not body.get("can_make_damage"):
+			continue
+			
+		if body.is_in_group("bullets") and body.get("can_make_damage"):
+			make_damage(body)
+			body.queue_free()
+			continue
+		
 		if  "Bonfire" in area.name:
 			body = area
 		

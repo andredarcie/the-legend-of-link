@@ -26,6 +26,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="Area2D2" type="Area2D" parent="."]

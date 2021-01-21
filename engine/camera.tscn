@@ -3,7 +3,7 @@
 [ext_resource path="res://engine/camera.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 157.162, 87.3248 )
+extents = Vector2( 163.116, 92.4332 )
 
 [node name="camera" type="Camera2D"]
 anchor_mode = 0
@@ -15,3 +15,4 @@ position = Vector2( 80.4719, 81.4158 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
 position = Vector2( 78.8384, 9.8248 )
 shape = SubResource( 1 )
+[connection signal="body_exited" from="area" to="." method="_on_area_body_exited"]

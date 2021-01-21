@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://enemies/BaseEnemy/BaseEnemy.gd" type="Script" id=1]
 [ext_resource path="res://enemies/Zombie/zombie.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 215.224
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -37,6 +40,9 @@ extents = Vector2( 6, 6 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 7, 7 )
 
+[sub_resource type="CircleShape2D" id=4]
+radius = 37.9681
+
 [node name="BaseEnemy" type="KinematicBody2D" groups=[
 "enemies",
 ]]
@@ -44,6 +50,14 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="Range" type="Area2D" parent="." groups=[
+"ranges",
+]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource( 5 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 4.0
@@ -64,8 +78,8 @@ shape = SubResource( 3 )
 
 [node name="Vision" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vision"]
-polygon = PoolVector2Array( -3.66515, -3.36874, -30.3235, 20.2568, -12.3032, 39.612, 12.5583, 39.7789, 30.078, 19.7563, 1.6742, -3.8693 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+shape = SubResource( 4 )
 
 [node name="Balloon" type="Sprite" parent="."]
 position = Vector2( -0.124992, -16.5906 )
@@ -74,6 +88,12 @@ position = Vector2( -0.124992, -16.5906 )
 wait_time = 3.0
 
 [node name="MagicBallTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="GatherMagicTimer" type="Timer" parent="."]
+wait_time = 0.5
+[connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]
 [connection signal="body_entered" from="Vision" to="." method="_on_Vision_body_entered"]
 [connection signal="timeout" from="SuspiciousTimer" to="." method="_on_SuspiciousTimer_timeout"]
 [connection signal="timeout" from="MagicBallTimer" to="." method="_on_MagicBallTimer_timeout"]
+[connection signal="timeout" from="GatherMagicTimer" to="." method="_on_GatherMagicTimer_timeout"]

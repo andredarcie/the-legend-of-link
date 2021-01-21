@@ -4,11 +4,13 @@ var move_timer_length: float = 15
 var movetimer: int = 0
 var damage: float = 0.25
 var is_following := false
+var can_follow: bool = false
 var stopped: bool = false
-var shoot_magic_balls: bool = false
+var can_shoot_magic_balls: bool = false
+var magic_texture = null
 onready var player: Player = get_tree().get_root().get_node("Node2D/player")
 var move
-
+var texture_default_cache = null
 var alert_texture = load("res://enemies/BaseEnemy/alert.png")
 var suspicious_texture = load("res://enemies/BaseEnemy/suspicious.png")
 
@@ -19,12 +21,12 @@ func _ready() -> void:
 	$Balloon.visible = false
 	$Sprite.texture = load("res://enemies/Zombie/zombie.png")
 	
-
+	
 func set_can_see(can_see: bool):
 	if can_see:
-		$Vision/CollisionPolygon2D.disabled = false
+		$Vision/CollisionShape2D.disabled = false
 	else:
-		$Vision/CollisionPolygon2D.disabled = true
+		$Vision/CollisionShape2D.disabled = true
 
 func set_texture(texture: Texture):
 	texture_default = texture
@@ -43,7 +45,7 @@ func _physics_process(_delta: float) -> void:
 
 	
 	if is_following and is_on_wall() and global_position.distance_to(player.global_position) > 60:
-		suspicious()
+		suspicious_mode()
 		
 	if is_following:
 		speed = 50
@@ -63,19 +65,27 @@ func _physics_process(_delta: float) -> void:
 
 func _on_Vision_body_entered(body):
 	if body.get("type") == "player":
-		$Balloon.visible = true
-		$Balloon.texture = alert_texture
+		alert_mode()
+		
+
+func alert_mode():
+	$Balloon.visible = true
+	$Balloon.texture = alert_texture
+	
+	if can_follow:
 		is_following = true
-		if shoot_magic_balls:
-			$MagicBallTimer.start()
-
-
-func suspicious():
+	
+	if can_shoot_magic_balls:
+		$MagicBallTimer.start()
+		
+	
+func suspicious_mode():
 	is_following = false
 	speed = 40
 	$Balloon.visible = true
 	$Balloon.texture = suspicious_texture
 	$SuspiciousTimer.start()
+	$MagicBallTimer.stop()
 
 
 func _on_SuspiciousTimer_timeout():
@@ -84,5 +94,26 @@ func _on_SuspiciousTimer_timeout():
 
 
 func _on_MagicBallTimer_timeout():
+	$GatherMagicTimer.start()
+	
+	texture_default_cache = texture_default
+	texture_default = magic_texture
+	
+	
+func shoot_magic_ball():
 	var new_scene = load("res://enemies/BaseEnemy/MagicBall.tscn").instance()
 	add_child_below_node(get_tree().get_root().get_node("Node2D"), new_scene)
+
+
+func _on_GatherMagicTimer_timeout():
+	$GatherMagicTimer.stop()
+	
+	texture_default = texture_default_cache
+		
+	shoot_magic_ball()
+
+
+func _on_Range_body_exited(body):
+	if not body.get("type") == null:
+		if body.type == "player":
+			suspicious_mode()

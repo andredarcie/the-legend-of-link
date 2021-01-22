@@ -28,4 +28,12 @@ func _process(_delta: float) -> void:
 		if index < last_heart:
 			heart.frame = 4
 			
-	$keys.frame = player.keys
+	show_coins()
+	show_keys()
+	
+	
+func show_coins():
+	$VBoxContainer/CoinTextLabel.text = "coins: " + str(player.coins)
+	
+func show_keys():
+	$VBoxContainer/KeysTextLabel.text = "keys: " + str(player.keys)

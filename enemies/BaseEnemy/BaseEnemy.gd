@@ -39,29 +39,38 @@ func set_max_health(health):
 
 func _physics_process(_delta: float) -> void:
 	move = Vector2.ZERO
+	knockdir = Vector2.ZERO
 	
-	if stopped:
-		return
-
+	damage_loop()
 	
 	if is_following and is_on_wall() and global_position.distance_to(player.global_position) > 60:
 		suspicious_mode()
 		
 	if is_following:
-		speed = 50
-		move = global_position.direction_to(player.global_position) * speed
+		speed = 40
+		
+		if not knockdir.normalized() == Vector2(0, 0):
+			move = knockdir.normalized() * 1500
+		else:
+			move = global_position.direction_to(player.global_position) * speed
+			
 		move_and_slide(move, Vector2(0, 0))
-		damage_loop()
+		return
 	else:
-		movement_loop()
-		damage_loop()
+		if hitstun == 0:
+			move = movedir.normalized() * speed
+		else:
+			print(knockdir)
+			move = knockdir.normalized() * 125
+		
+		move_and_slide(move, Vector2(0, 0))
 		
 		if movetimer > 0:
 			movetimer -= 1
 		if movetimer == 0 || is_on_wall():
 			movedir = dir.rand()
 			movetimer = move_timer_length
-
+		
 
 func _on_Vision_body_entered(body):
 	if body.get("type") == "player":

@@ -4,6 +4,7 @@ var state: String = 'default'
 var keys: int = 0
 var sword_on_fire: bool = false
 var coins: int = 0
+var sword = preload('res://items/sword.tscn')
 
 signal player_move
 
@@ -13,7 +14,7 @@ func _init() -> void:
 	health = 10
 	
 func _ready() -> void:
-	speed = 70
+	speed = 90
 
 func _physics_process(delta: float) -> void:
 	match state:
@@ -46,7 +47,7 @@ func state_default() -> void:
 		anim_switch('idle')
 	
 	if Input.is_action_just_pressed("a"):
-		use_item(preload('res://items/sword.tscn'))
+		use_item(sword)
 
 func state_swing() -> void:
 	anim_switch('idle')

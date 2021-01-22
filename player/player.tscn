@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/player.png" type="Texture" id=2]
+[ext_resource path="res://engine/camera.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 7 )
@@ -196,6 +197,7 @@ polygon = PoolVector2Array( -4.48177, 7.64083, 3.98177, 7.4181, 5.54084, 3.07497
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+z_index = 1
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 8
@@ -231,5 +233,9 @@ one_shot = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 15 )
+
+[node name="camera" parent="." instance=ExtResource( 3 )]
+visible = false
+current = true
 [connection signal="ready" from="." to="." method="_on_player_ready"]
 [connection signal="timeout" from="SwordOnFireTimer" to="." method="_on_SwordOnFireTimer_timeout"]

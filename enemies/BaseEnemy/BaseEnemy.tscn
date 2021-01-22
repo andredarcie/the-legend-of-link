@@ -3,11 +3,10 @@
 [ext_resource path="res://enemies/BaseEnemy/BaseEnemy.gd" type="Script" id=1]
 [ext_resource path="res://enemies/Zombie/zombie.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=1]
 radius = 215.224
 
-[sub_resource type="Animation" id=1]
-resource_name = "default"
+[sub_resource type="Animation" id=2]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:flip_h")
@@ -34,13 +33,13 @@ tracks/1/keys = {
 "values": [ -10.0, 10.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 6, 6 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 7, 7 )
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=5]
 radius = 37.9681
 
 [node name="BaseEnemy" type="KinematicBody2D" groups=[
@@ -57,11 +56,11 @@ __meta__ = {
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 4.0
-anims/default = SubResource( 1 )
+anims/default = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = -0.174533
@@ -69,17 +68,18 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Vision" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Balloon" type="Sprite" parent="."]
 position = Vector2( -0.124992, -16.5906 )

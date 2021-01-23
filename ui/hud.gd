@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 	
 	
 func show_coins():
-	$VBoxContainer/CoinTextLabel.text = "coins: " + str(player.coins)
+	$VBoxContainer/CoinTextLabel.text = "coins: " + str(GameState.coins)
 	
 func show_keys():
-	$VBoxContainer/KeysTextLabel.text = "keys: " + str(player.keys)
+	$VBoxContainer/KeysTextLabel.text = "keys: " + str(GameState.keys)

@@ -8,7 +8,7 @@ var can_follow: bool = false
 var stopped: bool = false
 var can_shoot_magic_balls: bool = false
 var magic_texture = null
-onready var player: Player = get_tree().get_root().get_node("Node2D/player")
+onready var player: Player = get_tree().root.get_child(2).get_node("player")
 var move
 var texture_default_cache = null
 var alert_texture = load("res://enemies/BaseEnemy/alert.png")

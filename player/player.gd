@@ -1,9 +1,7 @@
 class_name Player extends Entity
 
 var state: String = 'default'
-var keys: int = 0
 var sword_on_fire: bool = false
-var coins: int = 0
 var sword = preload('res://items/sword.tscn')
 
 signal player_move
@@ -23,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		'swing':
 			state_swing()
 	
-	keys = min(keys, 9)
+	GameState.keys = min(GameState.keys, 9)
 	
 func state_default() -> void:
 	controls_loop()
@@ -73,4 +71,4 @@ func _on_SwordOnFireTimer_timeout():
 	$SwordOnFireTimer.stop()
 	
 func add_coin():
-	coins += 1
+	GameState.coins += 1

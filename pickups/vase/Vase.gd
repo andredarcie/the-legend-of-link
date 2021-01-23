@@ -12,7 +12,7 @@ func _on_Vase_area_entered(area):
 		if my_random_number == 1:
 			var new_coin = coin.instance()
 			new_coin.position = global_position
-			get_node("/root/Node2D").add_child(new_coin)
+			get_tree().root.get_child(2).add_child(new_coin)
 			
 			
 		queue_free()

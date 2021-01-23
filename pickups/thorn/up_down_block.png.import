@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/down.png-f07bdaceb55702028396997db5736d42.stex"
+path="res://.import/up_down_block.png-fbede024c9019e0048bbbf887a9e53fd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pickups/thorn/down.png"
-dest_files=[ "res://.import/down.png-f07bdaceb55702028396997db5736d42.stex" ]
+source_file="res://pickups/thorn/up_down_block.png"
+dest_files=[ "res://.import/up_down_block.png-fbede024c9019e0048bbbf887a9e53fd.stex" ]
 
 [params]
 

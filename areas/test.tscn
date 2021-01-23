@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/dungeon.tres" type="TileSet" id=2]
@@ -799,9 +799,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 30/z_index = 0
 
-[sub_resource type="OccluderPolygon2D" id=36]
-polygon = PoolVector2Array( -14.7015, 1869.27, -8.24736, 1865.34, -4.73967, 1869.13 )
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -883,29 +880,6 @@ position = Vector2( 632, 2056 )
 [node name="Zombie4" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 624, 1936 )
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource( 36 )
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
-position = Vector2( 0.420921, -15.995 )
-occluder = SubResource( 36 )
-
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
-position = Vector2( 0.280613, -32.2708 )
-occluder = SubResource( 36 )
-
-[node name="LightOccluder2D4" type="LightOccluder2D" parent="."]
-position = Vector2( -30.7274, -46.1613 )
-occluder = SubResource( 36 )
-
-[node name="LightOccluder2D5" type="LightOccluder2D" parent="."]
-position = Vector2( -0.280617, -47.5643 )
-occluder = SubResource( 36 )
-
-[node name="LightOccluder2D7" type="LightOccluder2D" parent="."]
-position = Vector2( -63.84, 16.4159 )
-occluder = SubResource( 36 )
-
 [node name="EvilMage" parent="." instance=ExtResource( 16 )]
 position = Vector2( -392, 1832 )
 
@@ -934,4 +908,5 @@ position = Vector2( -88, 328 )
 
 [node name="Teleporter" parent="." instance=ExtResource( 19 )]
 position = Vector2( 1224, 1592 )
+start_position_y = 96
 [connection signal="player_move" from="player" to="Navigation2D" method="_on_player_player_move"]

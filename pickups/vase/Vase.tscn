@@ -3,8 +3,8 @@
 [ext_resource path="res://pickups/vase/vase.png" type="Texture" id=1]
 [ext_resource path="res://pickups/vase/Vase.gd" type="Script" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 8.0
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.03592, 6.14445 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 8.0

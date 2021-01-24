@@ -18,7 +18,7 @@ func _on_Area2D_body_entered(body):
 		])
 		return
 		
-	if (body as Player).keys > 0:
+	if GameState.keys > 0:
 		dialogBox.start_dialog(self.characterName, [
 			'Haha! Você encontrou a maldita chave.'
 		])

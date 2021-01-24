@@ -20,6 +20,7 @@ texture = ExtResource( 4 )
 hframes = 5
 
 [node name="DialogBox" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 64, 112 )
 color = Color( 0, 0, 0, 1 )
 

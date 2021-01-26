@@ -1,6 +1,6 @@
 class_name Entity extends KinematicBody2D
 
-var max_health: int = 10
+var max_health: int = 3
 
 var speed: float = 70
 var movedir: Vector2 = Vector2(0, 0)
@@ -19,6 +19,11 @@ func _ready() -> void:
 		
 	texture_default = $Sprite.texture
 	texture_hurt = load($Sprite.texture.get_path().replace('.png','_hurt.png'))
+	
+	if type == "player":
+		health = GameState.player_health
+		max_health = GameState.player_max_health
+
 
 func movement_loop() -> void:
 	var motion
@@ -91,9 +96,12 @@ func make_damage(body):
 	health -= body.get('damage')
 	hitstun = 10
 	knockdir = global_transform.origin - body.global_transform.origin
+		
+	if type == 'player':
+		GameState.player_health = health
 			
 	if type == 'player' and health <= 0:
-		get_tree().reload_current_scene()
+		GameState.restart_game()
 	
 	
 func use_item(item: PackedScene) -> void:
@@ -108,3 +116,20 @@ func instance_scene(scene: PackedScene) -> void:
 	var new_scene = scene.instance()
 	new_scene.global_position = global_position
 	get_parent().add_child(new_scene)
+	
+func gain_health(amount):
+	if health + amount >= max_health:
+		health = max_health
+	else:
+		health += amount
+		
+	if type == "player":
+		GameState.player_health = health
+		GameState.player_max_health = max_health
+		
+		
+func gain_max_health(amount):
+	max_health += amount
+	
+	if type == "player":
+		GameState.player_max_health = max_health

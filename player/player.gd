@@ -8,8 +8,8 @@ signal player_move
 
 func _init() -> void:
 	type = 'player'
-	max_health = 10
-	health = 10
+	max_health = GameState.player_max_health
+	health = GameState.player_health
 	
 func _ready() -> void:
 	speed = 90

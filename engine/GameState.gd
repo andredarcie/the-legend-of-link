@@ -19,6 +19,8 @@ var start_position_x: int = 0
 var start_position_y: int = 0
 var coins: int = 0
 var keys: int = 0
+var player_health: int = 3
+var player_max_health: int = 3
 
 func go_to_scene(x: int, y: int, name: String):
 	start_position_x = x
@@ -89,3 +91,8 @@ func set_player_start_position(player):
 
 func get_current_scene_name() -> String:
 	return get_tree().current_scene.name
+	
+func restart_game():
+	get_tree().reload_current_scene()
+	player_health = 3
+	player_max_health = 3

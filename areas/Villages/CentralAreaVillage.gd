@@ -1,5 +1,4 @@
 extends Node2D
 
-
 func _ready():
-	pass
+	GameState.set_player_start_position($player)

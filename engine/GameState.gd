@@ -14,10 +14,11 @@ var CentralAreaSoullessCastle = preload("res://areas/SoullessCastle/CentralAreaS
 var CentralAreaSwamp = preload("res://areas/Swamps/CentralAreaSwamp.tscn")
 var CentralAreaVillage = preload("res://areas/Villages/CentralAreaVillage.tscn")
 var CentralAreaVolcano = preload("res://areas/Volcano/CentralAreaVolcano.tscn")
+var CentralAreaDungeon = preload("res://areas/Dungeons/CentralAreaDungeon.tscn")
 
 var start_position_x: int = 0
 var start_position_y: int = 0
-var coins: int = 0
+var coins: int = 10
 var keys: int = 0
 var player_health: int = 3
 var player_max_health: int = 3
@@ -40,8 +41,12 @@ func go_to_scene(x: int, y: int, name: String):
 		get_tree().change_scene_to(CentralAreaSwamp)
 	elif name == "EnterCentralAreaVillage":
 		get_tree().change_scene_to(CentralAreaVillage)
+		start_position_x = 160
+		start_position_y = 24
 	elif name == "EnterCentralAreaVolcano":
 		get_tree().change_scene_to(CentralAreaVolcano)
+	elif name == "EnterCentralAreaDungeon":
+		get_tree().change_scene_to(CentralAreaDungeon)
 		
 	if name == "ExitCentralAreaDesert":
 		get_tree().change_scene_to(CentralAreaPlain)
@@ -82,6 +87,11 @@ func go_to_scene(x: int, y: int, name: String):
 		get_tree().change_scene_to(CentralAreaPlain)
 		start_position_x = 472
 		start_position_y = 512
+		
+	elif name == "ExitDungeonToCentralVillage":
+		get_tree().change_scene_to(CentralAreaVillage)
+		start_position_x = 328
+		start_position_y = 280
 		
 		
 func set_player_start_position(player):

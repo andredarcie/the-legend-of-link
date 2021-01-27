@@ -22,6 +22,7 @@ var coins: int = 10
 var keys: int = 0
 var player_health: int = 3
 var player_max_health: int = 3
+var player_arrows: int = 10
 
 func go_to_scene(x: int, y: int, name: String):
 	start_position_x = x
@@ -106,3 +107,4 @@ func restart_game():
 	get_tree().reload_current_scene()
 	player_health = 3
 	player_max_health = 3
+	player_arrows = 10

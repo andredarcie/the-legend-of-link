@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://areas/Dungeons/CentralAreaDungeon.gd" type="Script" id=1]
 [ext_resource path="res://pickups/board/Board.tscn" type="PackedScene" id=2]
@@ -7,8 +7,11 @@
 [ext_resource path="res://ui/hud.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tiles/TileMaps/DungeonTileMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pickups/turret/Turret.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/Bat/Bat.tscn" type="PackedScene" id=8]
+[ext_resource path="res://tiles/bonfire/Bonfire.tscn" type="PackedScene" id=9]
 [ext_resource path="res://pickups/store/Store.tscn" type="PackedScene" id=10]
 [ext_resource path="res://tiles/key_door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://tiles/grass/Grass.tscn" type="PackedScene" id=12]
 
 [node name="CentralAreaGiantForest" type="Node2D"]
 script = ExtResource( 1 )
@@ -54,3 +57,31 @@ tile_data = PoolIntArray( -10, 0, 0, -9, 0, 0, -8, 0, 0, -7, 0, 0, -6, 0, 0, -5,
 
 [node name="key_door" parent="." instance=ExtResource( 11 )]
 position = Vector2( 264, 72 )
+
+[node name="Bonfire" parent="." instance=ExtResource( 9 )]
+position = Vector2( 152, 80 )
+
+[node name="Bat" parent="." instance=ExtResource( 8 )]
+position = Vector2( 488, 32 )
+health = 10
+
+[node name="Grass" parent="." instance=ExtResource( 12 )]
+position = Vector2( 96, 80 )
+
+[node name="Grass2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 96, 96 )
+
+[node name="Grass3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 80, 80 )
+
+[node name="Grass4" parent="." instance=ExtResource( 12 )]
+position = Vector2( 96, 64 )
+
+[node name="Grass5" parent="." instance=ExtResource( 12 )]
+position = Vector2( 80, 48 )
+
+[node name="Grass6" parent="." instance=ExtResource( 12 )]
+position = Vector2( 96, 48 )
+
+[node name="Grass7" parent="." instance=ExtResource( 12 )]
+position = Vector2( 96, 112 )

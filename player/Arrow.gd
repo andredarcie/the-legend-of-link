@@ -1,4 +1,4 @@
-extends Sprite
+extends Area2D
 
 enum DIRECTION {
 	Up,
@@ -7,10 +7,13 @@ enum DIRECTION {
 	Right
 }
 
+var arrow_on_fire_texture = load("res://player/arrow_on_fire.png")
 var direction = DIRECTION.Down
 var point_of_origin = Vector2.ZERO
 var speed = 150
 var move = Vector2.ZERO
+var damage = 1
+var on_fire = false
 
 func _ready():
 	set_start_position()
@@ -29,6 +32,7 @@ func _physics_process(delta):
 			move = Vector2(0, 1) * delta * speed
 			
 	global_position += move
+	
 	
 func set_direction_and_point_of_origin(direction, point_of_origin):
 	self.direction = direction
@@ -54,5 +58,19 @@ func set_arrow_position_and_rotation(x, y, degrees):
 	
 	
 func _on_ArrowLifeTimer_timeout():
-	print("morreu")
 	queue_free()
+
+
+func _on_Arrow_area_entered(area):
+	if "Bonfire" in area.name:
+		on_fire = true
+		$Sprite.texture = arrow_on_fire_texture
+	elif "Grass" in area.get_parent().name and on_fire:
+		area.get_parent().catch_fire()
+
+
+func _on_Arrow_body_entered(body):
+	if body.has_method("make_damage"):
+		body.make_damage(self)
+	else:
+		queue_free()

@@ -10,14 +10,14 @@ extents = Vector2( 7.95588, 8.09503 )
 radius = 12.465
 
 [node name="Grass" type="Node2D"]
-z_index = -1
+z_index = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-z_index = -2
+z_index = -3
 texture = ExtResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]

@@ -3,8 +3,6 @@ class_name Player extends Entity
 var state: String = 'default'
 var sword_on_fire: bool = false
 var sword = preload('res://items/sword.tscn')
-var shooting_arrow = false
-var arrow_shoot = false
 var arrow_direction = DIRECTION.Up
 onready var arrow = preload("res://player/Arrow.tscn")
 
@@ -112,17 +110,16 @@ func set_bow_position_and_rotation(x, y, rotation_degress):
 	
 
 func shoot_arrow():
-	arrow_direction()
-	$Bow.visible = true
-	shooting_arrow = true
-	var new_arrow = arrow.instance()
-	new_arrow.set_direction_and_point_of_origin(arrow_direction, global_position)
-	get_node('..').add_child(new_arrow)
-	$Bow/BowTimer.start()
+	if GameState.player_arrows > 0:
+		GameState.player_arrows -= 1
+		arrow_direction()
+		$Bow.visible = true
+		var new_arrow = arrow.instance()
+		new_arrow.set_direction_and_point_of_origin(arrow_direction, global_position)
+		get_node('..').add_child(new_arrow)
+		$Bow/BowTimer.start()
 
 
 func _on_BowTimer_timeout():
 	$Bow.visible = false
-	shooting_arrow = false
-	arrow_shoot = true
 	$Bow/BowTimer.stop()

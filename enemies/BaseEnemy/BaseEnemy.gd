@@ -60,7 +60,6 @@ func _physics_process(_delta: float) -> void:
 		if hitstun == 0:
 			move = movedir.normalized() * speed
 		else:
-			print(knockdir)
 			move = knockdir.normalized() * 125
 		
 		move_and_slide(move, Vector2(0, 0))

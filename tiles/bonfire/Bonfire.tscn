@@ -8,6 +8,7 @@
 extents = Vector2( 8, 8 )
 
 [node name="Bonfire" type="Area2D"]
+z_index = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true

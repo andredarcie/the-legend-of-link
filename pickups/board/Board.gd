@@ -5,7 +5,6 @@ export var message = ''
 
 func _ready():
 	dialogBox = get_tree().get_root().find_node("DialogBox", true, false) as DialogBox
-	print(dialogBox.name)
 
 
 func _on_Board_body_entered(body):

@@ -3,8 +3,19 @@ class_name Player extends Entity
 var state: String = 'default'
 var sword_on_fire: bool = false
 var sword = preload('res://items/sword.tscn')
+var shooting_arrow = false
+var arrow_shoot = false
+var arrow_direction = DIRECTION.Up
+onready var arrow = preload("res://player/Arrow.tscn")
 
 signal player_move
+
+enum DIRECTION {
+	Up,
+	Down,
+	Left,
+	Right
+}
 
 func _init() -> void:
 	type = 'player'
@@ -13,6 +24,8 @@ func _init() -> void:
 	
 func _ready() -> void:
 	speed = 90
+	$Bow.visible = false
+	
 
 func _physics_process(delta: float) -> void:
 	match state:
@@ -46,6 +59,9 @@ func state_default() -> void:
 	
 	if Input.is_action_just_pressed("a"):
 		use_item(sword)
+		
+	if Input.is_action_just_pressed("b"):
+		shoot_arrow()
 
 func state_swing() -> void:
 	anim_switch('idle')
@@ -72,3 +88,41 @@ func _on_SwordOnFireTimer_timeout():
 	
 func add_coin():
 	GameState.coins += 1
+	
+func arrow_direction():
+	match spritedir:
+		'left':
+			set_bow_position_and_rotation(-11.024, 0, 136)
+			arrow_direction = DIRECTION.Left
+		'right':
+			set_bow_position_and_rotation(8.504, 0.315, -45)
+			arrow_direction = DIRECTION.Right
+		'up':
+			set_bow_position_and_rotation(0.112, -11.136, 225.1)
+			arrow_direction = DIRECTION.Up
+		'down':
+			set_bow_position_and_rotation(0.112, 11.582, 45)
+			arrow_direction = DIRECTION.Down
+
+
+func set_bow_position_and_rotation(x, y, rotation_degress):
+	$Bow.position.x = x
+	$Bow.position.y = y
+	$Bow.rotation_degrees = rotation_degress
+	
+
+func shoot_arrow():
+	arrow_direction()
+	$Bow.visible = true
+	shooting_arrow = true
+	var new_arrow = arrow.instance()
+	new_arrow.set_direction_and_point_of_origin(arrow_direction, global_position)
+	get_node('..').add_child(new_arrow)
+	$Bow/BowTimer.start()
+
+
+func _on_BowTimer_timeout():
+	$Bow.visible = false
+	shooting_arrow = false
+	arrow_shoot = true
+	$Bow/BowTimer.stop()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/player.png" type="Texture" id=2]
 [ext_resource path="res://engine/camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/bow.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 7 )
@@ -237,5 +238,15 @@ occluder = SubResource( 15 )
 [node name="camera" parent="." instance=ExtResource( 3 )]
 visible = false
 current = true
+
+[node name="Bow" type="Sprite" parent="."]
+position = Vector2( 0.111919, 11.5817 )
+rotation = 0.785398
+z_index = 1
+texture = ExtResource( 5 )
+
+[node name="BowTimer" type="Timer" parent="Bow"]
+wait_time = 0.3
 [connection signal="ready" from="." to="." method="_on_player_ready"]
 [connection signal="timeout" from="SwordOnFireTimer" to="." method="_on_SwordOnFireTimer_timeout"]
+[connection signal="timeout" from="Bow/BowTimer" to="." method="_on_BowTimer_timeout"]
